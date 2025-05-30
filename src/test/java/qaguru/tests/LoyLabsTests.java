@@ -2,9 +2,11 @@ package qaguru.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import qaguru.pages.*;
 
+@Tag("LoyLabs")
 public class LoyLabsTests extends TestBase {
 
     private mainPage mainPage;
