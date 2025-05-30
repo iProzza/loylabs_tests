@@ -131,12 +131,15 @@ clean loylabs_test
 
 ### После завершения сборки, бот, созданный в Telegram, автоматически обрабатывает и отправляет сообщение с результатом
 
+<p align="center">
 <img src="media/screens/tg_notification.png" width="600" alt="Allure">
-
+</p>
 
 ## <img src="media/logo/Selenoid.svg" width="40" height="40" alt="Selenoid"> Видео с запуском тестов в Selenoid
 
-
+<p align="center">
+  <img src="media/screens/selenoid.gif" width="600" alt="Selenoid Demo">
+</p>
 
 
 
