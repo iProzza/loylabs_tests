@@ -28,7 +28,6 @@ public class TestBase {
                 .clearResolutionCache()
                 .setup();
 
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = screenResolution;
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
