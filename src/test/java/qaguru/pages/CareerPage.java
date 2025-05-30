@@ -1,16 +1,17 @@
 package qaguru.pages;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.ElementsCollection;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.$$x;
 
 public class CareerPage {
 
-    private final SelenideElement careerHeader = $x("//div[not(contains(@class, 'nav-text'))][contains(text(), 'Обеспечиваем условия для профессиональ')]");
+    private final ElementsCollection vacancyList = $$x("//a[contains(@class, 'MuiTypography-root MuiTypography-inherit')]//h3[contains(@class, 'MuiTypography-root MuiTypography-h3')]");
 
-    public CareerPage checkCareerHeaderText(String value) {
-        careerHeader.shouldHave(text(value));
+    public CareerPage checkVacancyListNotEmpty() {
+        vacancyList.shouldHave(CollectionCondition.sizeGreaterThan(0));
         return this;
     }
 

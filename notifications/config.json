@@ -1,10 +1,9 @@
 {
   "base": {
-    "logo": "",
-    "project": "X",
+    "project": "LoylabsTests",
     "environment": "Test",
-    "comment": "",
-    "reportLink": "",
+    "comment": "Отчет о прогоне тестов",
+    "reportLink": "https://jenkins.autotests.cloud/job/035-Azkeww-hw14/",
     "language": "en",
     "allureFolder": "allure-report/",
     "enableChart": true
