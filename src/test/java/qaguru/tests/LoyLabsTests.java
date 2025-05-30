@@ -54,7 +54,7 @@ public class LoyLabsTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Открываем страницу Кейсы и отображается заголовок Кейсы")
+    @DisplayName("Открываем страницу Контакты и отображается заголовок Контакты")
     void contactsPageTest() {
         mainPage.openPage().clickContactsSection();
         contactsPage.checkContactsHeaderText("Контакты");
