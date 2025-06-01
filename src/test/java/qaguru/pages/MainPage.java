@@ -12,7 +12,7 @@ public class MainPage {
 
     private final SelenideElement mainSection = $x("//div[contains(@class, 'nav-text')][text()='Главная']"),
             casesSection = $x("//div[contains(@class, 'nav-text')][text()='Кейсы']"),
-            careerSection = $x("//div[contains(@class, 'nav-text')][text()='Свободные специалисты']"),
+            careerSection = $x("//div[contains(@class, 'nav-text')][text()='Карьера']"),
             newsSection = $x("//div[contains(@class, 'nav-text')][text()='Новости']"),
             contactsSection = $x("//div[contains(@class, 'nav-text')][text()='Контакты']");
 
