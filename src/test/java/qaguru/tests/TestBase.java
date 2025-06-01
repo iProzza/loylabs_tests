@@ -1,9 +1,7 @@
 package qaguru.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -46,7 +44,7 @@ public class TestBase {
         ));
         Configuration.browserCapabilities = capabilities;
 
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
     }
 
     @AfterEach

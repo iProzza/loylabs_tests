@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class mainPage {
+public class MainPage {
 
     private final SelenideElement companyLogo = $x("//img[@alt='Loyalty Labs logo']");
 
@@ -16,9 +16,9 @@ public class mainPage {
             contactsSection = $x("//div[contains(@class, 'nav-text')][text()='Контакты']");
 
 
-    public mainPage openPage() {
+    public MainPage openPage() {
         open("https://loylabs.ru/");
-        return new mainPage();
+        return new MainPage();
     }
 
     public void checkLogoIsVisible() {
