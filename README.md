@@ -97,7 +97,7 @@
 
 ---
 
-## <img src="media/logo/Jenkins.svg" width="40" height="40" alt="Jenkins"> Запуск тестов в  Jenkins
+## [<img src="media/logo/Jenkins.svg" width="40" height="40" alt="Jenkins"> Запуск тестов в Jenkins](https://jenkins.autotests.cloud/job/035-Azkeww-hw14/)
 
 ### Локальный запуск
 ```bash
@@ -119,7 +119,7 @@ clean loylabs_test
 
 
 
-## <img src="media/logo/Allure_Report.svg" width="40" height="40" alt="Allure"> Allure-отчет
+## [<img src="media/logo/Allure_Report.svg" width="40" height="40" alt="Allure"> Allure-отчет](https://jenkins.autotests.cloud/job/035-Azkeww-hw14/9/allure/)
 
 ### Главная страница Allure-отчета
 <img src="media/screens/allure_report_1.png" width="800" alt="Allure">
