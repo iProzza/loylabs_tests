@@ -3,6 +3,7 @@ package qaguru.pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
@@ -17,7 +18,7 @@ public class MainPage {
 
 
     public MainPage openPage() {
-        open("https://loylabs.ru/");
+        open(baseUrl);
         return new MainPage();
     }
 

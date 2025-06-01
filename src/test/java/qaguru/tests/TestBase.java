@@ -7,6 +7,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import qaguru.utils.Attach;
 
@@ -15,12 +16,7 @@ import java.util.Map;
 public class TestBase {
 
     @BeforeAll
-    static void setUp() {
-
-        // Инициализация Allure listener ДО настройки Selenide
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
-                .screenshots(true)
-                .savePageSource(true));
+    static void BeforeAll() {
 
         String selenoidHost = System.getProperty("selenoid_host", "selenoid.autotests.cloud");
         String selenoidLogin = System.getProperty("selenoid_login", "user1");
@@ -34,6 +30,7 @@ public class TestBase {
                 .clearResolutionCache()
                 .setup();
 
+        Configuration.baseUrl = "https://loylabs.ru/";
         Configuration.browserSize = screenResolution;
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
@@ -44,6 +41,14 @@ public class TestBase {
                 selenoidPassword,
                 selenoidHost);
 
+    }
+
+    @BeforeEach
+    public void beforeEach(){
+        // Инициализация Allure listener ДО настройки Selenide
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -52,11 +57,10 @@ public class TestBase {
         ));
         Configuration.browserCapabilities = capabilities;
 
-
     }
 
     @AfterEach
-    void addAttachments() {
+    void afterEach() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();

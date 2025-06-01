@@ -24,13 +24,6 @@ public class LoyLabsTests extends TestBase {
         careerPage = new CareerPage();
         contactsPage = new ContactsPage();
 
-        //Создаём инстанс лиснера отдельно для каждого теста
-//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @AfterEach
-    void tearDown() {
-        Selenide.closeWebDriver();
     }
 
     @Test
