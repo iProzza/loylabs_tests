@@ -1,6 +1,9 @@
 
-
-
+<p align="center">
+  <a href="https://loylabs.ru/" target="_blank">
+    <img src="media/screens/Logo.png" width="200" alt="LoyLabs Logo">
+  </a>
+</p>
 
 # Проект по автоматизации тестовых сценариев для сайта компании [LoyLabs](https://loylabs.ru/)
 
