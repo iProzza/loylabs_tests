@@ -1,7 +1,10 @@
 package qaguru.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,6 +16,11 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
+
+        // Инициализация Allure listener ДО настройки Selenide
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
 
         String selenoidHost = System.getProperty("selenoid_host", "selenoid.autotests.cloud");
         String selenoidLogin = System.getProperty("selenoid_login", "user1");
@@ -53,6 +61,7 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Selenide.closeWebDriver();
 
     }
 }

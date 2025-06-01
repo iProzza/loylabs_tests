@@ -25,7 +25,7 @@ public class LoyLabsTests extends TestBase {
         contactsPage = new ContactsPage();
 
         //Создаём инстанс лиснера отдельно для каждого теста
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
