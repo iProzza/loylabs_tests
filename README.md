@@ -41,7 +41,7 @@
       </td>
       <td align="center" width="110">
         <a href="https://gradle.org/" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" width="48" height="48" alt="Gradle" />
+          <img src="https://cdn.simpleicons.org/gradle/02303A" width="48" height="48" alt="Gradle" />
         </a>
         <br>Gradle
       </td>
