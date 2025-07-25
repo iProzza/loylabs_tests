@@ -20,7 +20,6 @@ public class MainPageTests extends TestBase {
     void mainPageTest() {
         step("Проверяем видимость логотипа компании", () -> mainPage.checkLogoIsVisible());
         step("Проверяем наличия блока 'Новости'", () -> mainPage.checkNewsBlockIsVisible());
-
     }
 
     @Test
