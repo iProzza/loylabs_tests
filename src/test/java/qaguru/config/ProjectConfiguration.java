@@ -24,16 +24,16 @@ public class ProjectConfiguration {
         Configuration.pageLoadStrategy = "eager";
 
         if (webConfig.isRemote()) {
-//            System.out.println("Remote mode enabled. URL: " + webConfig.getRemoteUrl());
-//            Configuration.remote = String.valueOf(webConfig.getRemoteUrl());
+            System.out.println("Remote mode enabled. URL: " + webConfig.getRemoteUrl());
+            Configuration.remote = String.valueOf(webConfig.getRemoteUrl());
 
-            String remoteUrl = String.format(
-                    "https://%s:%s@%s/wd/hub",
-                    webConfig.selenoidLogin(),
-                    webConfig.selenoidPassword(),
-                    webConfig.selenoidHost()
-            );
-            Configuration.remote = remoteUrl;
+//            String remoteUrl = String.format(
+//                    "https://%s:%s@%s/wd/hub",
+//                    webConfig.selenoidLogin(),
+//                    webConfig.selenoidPassword(),
+//                    webConfig.selenoidHost()
+//            );
+//            Configuration.remote = remoteUrl;
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.of(
