@@ -1,12 +1,10 @@
 package qaguru.config;
 
 import org.aeonbits.owner.Config;
-
 import java.net.URL;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-//        "system:properties",
         "classpath:${env}.properties"
 })
 public interface WebConfig extends Config {
@@ -33,14 +31,4 @@ public interface WebConfig extends Config {
     @Key("isRemote")
     @DefaultValue("false")
     boolean isRemote();
-
-//    @DefaultValue("selenoid.autotests.cloud")
-//    String selenoidHost();
-//
-//    @DefaultValue("user1")
-//    String selenoidLogin();
-//
-//    @DefaultValue("1234")
-//    String selenoidPassword();
-
 }

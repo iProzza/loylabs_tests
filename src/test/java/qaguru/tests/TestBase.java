@@ -22,7 +22,6 @@ public class TestBase {
         projectConfiguration.webConfig();
     }
 
-
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("allure", new AllureSelenide());
