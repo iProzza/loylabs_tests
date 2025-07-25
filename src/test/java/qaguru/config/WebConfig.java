@@ -26,21 +26,21 @@ public interface WebConfig extends Config {
     @DefaultValue("https://loylabs.ru/")
     String getBaseUrl();
 
-    @Key("remoteUrl")
-    @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
-    URL getRemoteUrl();
+//    @Key("remoteUrl")
+//    @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
+//    URL getRemoteUrl();
 
     @Key("isRemote")
     @DefaultValue("false")
     boolean isRemote();
 
-//    @DefaultValue("selenoid.autotests.cloud")
-//    String selenoidHost();
-//
-//    @DefaultValue("user1")
-//    String selenoidLogin();
-//
-//    @DefaultValue("1234")
-//    String selenoidPassword();
+    @DefaultValue("selenoid.autotests.cloud")
+    String selenoidHost();
+
+    @DefaultValue("user1")
+    String selenoidLogin();
+
+    @DefaultValue("1234")
+    String selenoidPassword();
 
 }
