@@ -5,6 +5,7 @@ import qaguru.pages.*;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("WEB")
 public class MainPageTests extends TestBase {
 
     MainPage mainPage = new MainPage();
@@ -15,7 +16,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @Tag("LoyLabs")
+    @Tag("SMOKE")
     @DisplayName("Проверка открытия главной страницы")
     void mainPageTest() {
         step("Проверяем видимость логотипа компании", () -> mainPage.checkLogoIsVisible());
@@ -23,15 +24,15 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @Tag("LoyLabs")
+    @Tag("NEGATIVE")
     @DisplayName("Проверка отправки формы 'Расскажите нам о своей задаче' без заполнения полей")
     void unSuccessfulFormSendTest() {
         step("Нажимаем на кнопку 'Отправить'", () -> mainPage.clickSubmitFormBtn());
         step("Проверяем сообщения об ошибках для обязательных полей", () -> {
-                    mainPage.checkErrorMessagesForFieldS("Не оставляйте описание пустым");
-                    mainPage.checkErrorMessagesForFieldS("Как к Вам обращаться?");
-                    mainPage.checkErrorMessagesForFieldS("Оставьте свой номер телефона");
-                    mainPage.checkErrorMessagesForFieldS("Введите корректный E-mail");
+                    mainPage.checkErrorMessagesForFields("Не оставляйте описание пустым");
+                    mainPage.checkErrorMessagesForFields("Как к Вам обращаться?");
+                    mainPage.checkErrorMessagesForFields("Оставьте свой номер телефона");
+                    mainPage.checkErrorMessagesForFields("Введите корректный E-mail");
                 }
         );
     }

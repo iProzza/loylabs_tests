@@ -55,8 +55,26 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-task loylabs_test(type: Test) {
+task web_test(type: Test) {
     useJUnitPlatform {
-        includeTags("LoyLabs")
+        includeTags("WEB")
+    }
+}
+
+task smoke_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("SMOKE")
+    }
+}
+
+task negative_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("NEGATIVE")
+    }
+}
+
+task regression_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("REGRESSION")
     }
 }

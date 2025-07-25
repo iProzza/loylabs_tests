@@ -58,7 +58,7 @@ public class MainPage {
         submitFormBtn.hover().click();
     }
 
-    public void checkErrorMessagesForFieldS(String errorText) {
+    public void checkErrorMessagesForFields(String errorText) {
         errorMessagesForField.findBy(text(errorText)).shouldBe(visible);
     }
 }

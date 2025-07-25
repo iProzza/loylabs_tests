@@ -8,6 +8,7 @@ import qaguru.pages.*;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("WEB")
 public class CasesTests extends TestBase {
 
     MainPage mainPage = new MainPage();
@@ -20,18 +21,17 @@ public class CasesTests extends TestBase {
     }
 
     @Test
-    @Tag("LoyLabs")
+    @Tag("SMOKE")
     @DisplayName("Проверка открытия страницы 'Кейсы'")
     void casesPageTest() {
         step("Проверяем заголовок 'Кейсы' ", () -> casesPage.checkCasesHeaderText("Кейсы"));
     }
 
     @Test
-    @Tag("LoyLabs")
-    @DisplayName("Проверка открытия страницы 'Кейсы'")
+    @Tag("REGRESSION")
+    @DisplayName("Проверка фильтрации баннеров")
     void filtrationBannersTest() {
         step("Выбираем фильтр 'Программа лояльности' ", () -> casesPage.clickLoyaltyProgramToggleBtn());
         step("Проверяем фильтрацию 'Программа лояльности' ", () -> casesPage.checkBannersFiltration("Программа лояльности"));
     }
-
 }
