@@ -1,27 +1,39 @@
 package qaguru.config;
 
 import com.codeborne.selenide.Configuration;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
 public class ProjectConfiguration {
+    private final WebConfig webConfig;
 
-    public static WebConfig config = ConfigFactory.create(WebConfig.class);
+    public ProjectConfiguration(WebConfig webConfig) {
+        this.webConfig = webConfig;
+    }
 
+    public void webConfig() {
 
-    public static void setConfig() {
+        System.out.println("env = " + System.getProperty("env"));
+        System.out.println("isRemote = " + webConfig.isRemote());
 
-        Configuration.baseUrl = config.getBaseUrl();
-        Configuration.browserSize = config.getBrowserSize();
-        Configuration.browser = config.getBrowserName();
-        Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.baseUrl = webConfig.getBaseUrl();
+        Configuration.browserSize = webConfig.getBrowserSize();
+        Configuration.browser = webConfig.getBrowserName();
+        Configuration.browserVersion = webConfig.getBrowserVersion();
         Configuration.pageLoadStrategy = "eager";
 
+        if (webConfig.isRemote()) {
+            System.out.println("Remote mode enabled. URL: " + webConfig.getRemoteUrl());
+            Configuration.remote = String.valueOf(webConfig.getRemoteUrl());
 
-        if (config.isRemote()) {
-            Configuration.remote = config.getRemoteUrl();
+//            String remoteUrl = String.format(
+//                    "https://%s:%s@%s/wd/hub",
+//                    webConfig.selenoidLogin(),
+//                    webConfig.selenoidPassword(),
+//                    webConfig.selenoidHost()
+//            );
+//            Configuration.remote = remoteUrl;
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.of(
