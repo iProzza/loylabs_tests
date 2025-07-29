@@ -10,6 +10,7 @@ import pages.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("WEB")
+@DisplayName("Тесты для страницы 'Новости'")
 public class NewsPageTests extends BaseTest {
 
     MainPage mainPage = new MainPage();
