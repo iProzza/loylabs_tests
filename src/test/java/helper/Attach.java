@@ -1,6 +1,5 @@
-package qaguru.utils;
+package helper;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;

@@ -1,4 +1,4 @@
-package qaguru.tests;
+package tests;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -6,13 +6,13 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import qaguru.config.ConfigReader;
-import qaguru.config.ProjectConfiguration;
-import qaguru.config.WebConfig;
-import qaguru.utils.Attach;
+import config.ConfigReader;
+import config.ProjectConfiguration;
+import config.WebConfig;
+import helper.Attach;
 
 
-public class TestBase {
+public class BaseTest {
 
    private static final WebConfig webConfig = ConfigReader.Instance.read();
 

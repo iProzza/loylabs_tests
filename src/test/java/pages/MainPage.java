@@ -1,4 +1,4 @@
-package qaguru.pages;
+package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -12,7 +12,6 @@ public class MainPage {
     private final SelenideElement companyLogo = $x("//img[@alt='Loyalty Labs logo']");
 
     private final SelenideElement
-            mainSection = $x("//div[contains(@class, 'nav-text')][text()='Главная']"),
             casesSection = $x("//div[contains(@class, 'nav-text')][text()='Кейсы']"),
             careerSection = $x("//div[contains(@class, 'nav-text')][text()='Карьера']"),
             newsSection = $x("//div[contains(@class, 'nav-text')][text()='Новости']"),
@@ -22,7 +21,6 @@ public class MainPage {
             tenderBtn = $x("//button[contains(@class, 'MuiButtonBase-root')][text()='Пригласить в тендер']");
 
     private final ElementsCollection errorMessagesForField = $$x("//p[contains(@class, 'MuiFormHelperText-root MuiFormHelperText-sizeMedium')]");
-
 
     public void openPage() {
         open("/");
@@ -54,8 +52,12 @@ public class MainPage {
         contactsSection.click();
     }
 
+    public void clickTenderBtn() {
+        tenderBtn.click();
+    }
+
     public void clickSubmitFormBtn() {
-        submitFormBtn.hover().click();
+        submitFormBtn.click();
     }
 
     public void checkErrorMessagesForFields(String errorText) {

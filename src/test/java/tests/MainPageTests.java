@@ -1,12 +1,14 @@
-package qaguru.tests;
+package tests;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
-import qaguru.pages.*;
+import pages.*;
 
 import static io.qameta.allure.Allure.step;
 
 @Tag("WEB")
-public class MainPageTests extends TestBase {
+@DisplayName("Тесты для главной страницы")
+public class MainPageTests extends BaseTest {
 
     MainPage mainPage = new MainPage();
 
@@ -17,6 +19,9 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("SMOKE")
+    @Story("Позитивный тест")
+    @Owner("@Azkeww")
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка открытия главной страницы")
     void mainPageTest() {
         step("Проверяем видимость логотипа компании", () -> mainPage.checkLogoIsVisible());
@@ -25,8 +30,12 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("NEGATIVE")
+    @Story("Негативный тест")
+    @Owner("@Azkeww")
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка отправки формы 'Расскажите нам о своей задаче' без заполнения полей")
     void unSuccessfulFormSendTest() {
+        step("Нажимаем на кнопку 'Пригласить в тендер'", () -> mainPage.clickTenderBtn());
         step("Нажимаем на кнопку 'Отправить'", () -> mainPage.clickSubmitFormBtn());
         step("Проверяем сообщения об ошибках для обязательных полей", () -> {
                     mainPage.checkErrorMessagesForFields("Не оставляйте описание пустым");
