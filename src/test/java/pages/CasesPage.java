@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$$x;
@@ -20,15 +21,17 @@ public class CasesPage {
         return caseBanners.$$x(".//button[contains(@class,  'MuiButtonBase-root MuiButton-root MuiButton-text')]");
     }
 
-
+    @Step("Проверяем заголовок 'Кейсы'")
     public void checkCasesHeaderText(String value) {
         casesHeader.shouldHave(text(value));
     }
 
+    @Step("Выбираем фильтр 'Программа лояльности'")
     public void clickLoyaltyProgramToggleBtn() {
         loyaltyProgramToggleBtn.click();
     }
 
+    @Step("Проверяем фильтрацию 'Программа лояльности'")
     public void checkBannersFiltration(String filterName) {
         caseBannersList.shouldHave(CollectionCondition.sizeGreaterThan(0)).
                 forEach(caseBannersList -> {

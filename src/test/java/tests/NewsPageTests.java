@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.*;
 
-import static io.qameta.allure.Allure.step;
-
 @Tag("WEB")
+@Owner("@Azkeww")
 @DisplayName("Тесты для страницы 'Новости'")
 public class NewsPageTests extends BaseTest {
 
@@ -18,29 +17,25 @@ public class NewsPageTests extends BaseTest {
 
     @BeforeEach
     public void openPage() {
-        step("Открываем главную страницу", () -> mainPage.openPage());
-        step("Переходим в раздел 'Новости' ", () -> mainPage.clickNewsSection());
+        mainPage.openMainPage();
+        mainPage.clickNewsSection();
     }
 
     @Test
     @Tag("SMOKE")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка открытия страницы 'Новости'")
     void newsPageTest() {
         newsPage.checkNewsHeaderText("Новости");
-        step("Проверяем заголовок 'Кейсы' ", () -> newsPage.checkNewsHeaderText("Новости"));
     }
 
     @Test
     @Tag("REGRESSION")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверяем, что список новостей не пустой")
     void newsListShouldNotEmptyTest() {
-        newsPage.checkNewsHeaderText("Новости");
-        step("Проверяем заголовок 'Кейсы' ", () -> newsPage.checkNewsListNotEmpty());
+        newsPage.checkNewsListNotEmpty();
     }
 }

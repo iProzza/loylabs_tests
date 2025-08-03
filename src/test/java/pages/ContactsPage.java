@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -13,10 +14,12 @@ public class ContactsPage {
     private final SelenideElement contactsHeader = $x("//div[not(contains(@class, 'nav-text'))][text()='Контакты']");
     private final ElementsCollection contactsList = $$x("//p[contains(@class, 'MuiTypography-root MuiTypography-body1')]");
 
+    @Step("Проверяем заголовок 'Контакты'")
     public void checkContactsHeaderText(String value) {
         contactsHeader.shouldHave(text(value));
     }
 
+    @Step("Проверяем список контактов")
     public void checkContactNameInList(String contactName) {
         contactsList.findBy(text(contactName)).shouldBe(visible);
     }

@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.*;
 
-import static io.qameta.allure.Allure.step;
-
 @Tag("WEB")
+@Owner("@Azkeww")
 @DisplayName("Тесты для страницы 'Карьера'")
 public class CareerPageTests extends BaseTest {
 
@@ -18,30 +17,28 @@ public class CareerPageTests extends BaseTest {
 
     @BeforeEach
     public void openPage() {
-        step("Открываем главную страницу", () -> mainPage.openPage());
-        step("Переходим в раздел 'Карьера' ", () -> mainPage.clickCareerSection());
+        mainPage.openMainPage();
+        mainPage.clickCareerSection();
     }
 
     @Test
     @Tag("SMOKE")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка открытия страницы 'Карьера'")
     void careerPageTest() {
-        step("Проверяем наличия блока 'Что вас ждет'", () -> careerPage.whatAwaitsYouBlockIsVisible());
-        step("Проверяем наличия блока 'Бонусы для сотрудников'", () -> careerPage.employeeBonusesBlockIsVisible());
-        step("Проверяем наличия блока 'Вакансии'", () -> careerPage.vacancyBlockIsVisible());
+        careerPage.whatAwaitsYouBlockIsVisible();
+        careerPage.employeeBonusesBlockIsVisible();
+        careerPage.vacancyBlockIsVisible();
     }
 
     @Test
     @Tag("REGRESSION")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверяем наличие формы 'Не нашли вакансию?' на странице")
     void sendVacancyFormShouldBeExistTest() {
-        step("Нажимаем на кнопку 'Отправить резюме'", () -> careerPage.clickSendResumeBtn());
-        step("Проверяем, что форма 'Не нашли вакансию?' отображается", () -> careerPage.sendResumeFormIsVisible());
+        careerPage.clickSendResumeBtn();
+        careerPage.sendResumeFormIsVisible();
     }
 }

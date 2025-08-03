@@ -7,9 +7,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.*;
 
-import static io.qameta.allure.Allure.step;
-
 @Tag("WEB")
+@Owner("@Azkeww")
 @DisplayName("Тесты для страницы 'Кейсы'")
 public class CasesPageTests extends BaseTest {
 
@@ -18,28 +17,26 @@ public class CasesPageTests extends BaseTest {
 
     @BeforeEach
     public void openPage() {
-        step("Открываем главную страницу", () -> mainPage.openPage());
-        step("Переходим в раздел 'Кейсы' ", () -> mainPage.clickCasesSection());
+        mainPage.openMainPage();
+        mainPage.clickCasesSection();
     }
 
     @Test
     @Tag("SMOKE")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка открытия страницы 'Кейсы'")
     void casesPageTest() {
-        step("Проверяем заголовок 'Кейсы' ", () -> casesPage.checkCasesHeaderText("Кейсы"));
+        casesPage.checkCasesHeaderText("Кейсы");
     }
 
     @Test
     @Tag("REGRESSION")
     @Story("Позитивный тест")
-    @Owner("@Azkeww")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка фильтрации баннеров")
     void filtrationBannersTest() {
-        step("Выбираем фильтр 'Программа лояльности' ", () -> casesPage.clickLoyaltyProgramToggleBtn());
-        step("Проверяем фильтрацию 'Программа лояльности' ", () -> casesPage.checkBannersFiltration("Программа лояльности"));
+        casesPage.clickLoyaltyProgramToggleBtn();
+        casesPage.checkBannersFiltration("Программа лояльности");
     }
 }

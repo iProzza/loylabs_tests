@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -22,44 +23,54 @@ public class MainPage {
 
     private final ElementsCollection errorMessagesForField = $$x("//p[contains(@class, 'MuiFormHelperText-root MuiFormHelperText-sizeMedium')]");
 
-    public void openPage() {
+    @Step("Открываем главную страницу")
+    public void openMainPage() {
         open("/");
         tenderBtn.shouldBe(visible);
 
     }
 
+    @Step("Проверяем видимость логотипа компании")
     public void checkLogoIsVisible() {
         companyLogo.shouldBe(visible);
     }
 
+    @Step("Проверяем наличия блока 'Новости'")
     public void checkNewsBlockIsVisible() {
         newsBlock.shouldBe(visible);
     }
 
+    @Step("Переходим в раздел 'Кейсы'")
     public void clickCasesSection() {
         casesSection.click();
     }
 
+    @Step("Переходим в раздел 'Новости'")
     public void clickNewsSection() {
         newsSection.click();
     }
 
+    @Step("Переходим в раздел 'Карьера'")
     public void clickCareerSection() {
         careerSection.click();
     }
 
+    @Step("Переходим в раздел 'Контакты'")
     public void clickContactsSection() {
         contactsSection.click();
     }
 
+    @Step("Нажимаем на кнопку 'Пригласить в тендер'")
     public void clickTenderBtn() {
         tenderBtn.click();
     }
 
+    @Step("Нажимаем на кнопку 'Отправить'")
     public void clickSubmitFormBtn() {
         submitFormBtn.click();
     }
 
+    @Step("Проверяем сообщения об ошибках для обязательных полей")
     public void checkErrorMessagesForFields(String errorText) {
         errorMessagesForField.findBy(text(errorText)).shouldBe(visible);
     }
